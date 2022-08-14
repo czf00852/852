@@ -5,14 +5,7 @@ mode: Rule
 log-level: info
 external-controller: 127.0.0.1:9090
 proxies:
-  - {name: star zway8, server: gigs.075661.xyz, port: 24856, type: trojan, password: jXZ6SXkfSU, sni: gigs.075661.xyz, skip-cert-verify: true, udp: true}
-  - {name: 深圳, server: sz.choi33.top, port: 24865, type: ssr, cipher: rc4-md5, password: !<str> 637050, protocol: auth_aes128_md5, obfs: plain, protocolparam: "", obfsparam: "", udp: true}
-  - {name: 深圳備用, server: sz.choi33.top, port: 24862, type: ss, cipher: rc4-md5, password: !<str> 637050, udp: true}
-  - {name: 深圳24860, server: sz.choi33.top, port: 24860, type: ssr, cipher: rc4-md5, password: !<str> 637050, protocol: auth_aes128_md5, obfs: plain, protocolparam: "", obfsparam: "", udp: true}
-  - {name: 測試, server: cs1.czf00852.xyz, port: 24865, type: ssr, cipher: rc4-md5, password: !<str> 637050, protocol: auth_aes128_md5, obfs: plain, protocolparam: "", obfsparam: "", udp: true}
-  - {name: 香港備用, server: hk0804.asuscomm.com, port: 24862, type: ss, cipher: rc4-md5, password: !<str> 637050, udp: true}
-  - {name: HKBN2, server: hkbn2.czf00852.xyz, port: 24865, type: ssr, cipher: rc4-md5, password: !<str> 637050, protocol: auth_aes128_md5, obfs: plain, protocolparam: "", obfsparam: "", udp: true}
-  - {name: star-d, server: cc2104arm02.075661.xyz, port: 39961, type: trojan, password: JWXBoRb1aP, sni: cc2104arm02.075661.xyz, skip-cert-verify: true, udp: true}
+
 proxy-groups:
   - name: 🔰 节点选择
     type: select
