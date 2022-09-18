@@ -1,8 +1,8 @@
- - DOMAIN-SUFFIX,fubo.tv,🔯 美国节点
- - DOMAIN-SUFFIX,fubotv.com,🔯 美国节点
- - DOMAIN-SUFFIX,starplus.com,🔯 美国节点
- - DOMAIN-SUFFIX,starott.com,🔯 美国节点
- - DOMAIN-SUFFIX,star.api.edge.bamgrid.com,🔯 美国节点
- - DOMAIN-SUFFIX,star.connections.edge.bamgrid.com,🔯 美国节点
- - DOMAIN-SUFFIX,star.content.edge.bamgrid.com,🔯 美国节点
- - DOMAIN-SUFFIX,star.playback.edge.bamgrid.com,🔯 美国节点
+ - DOMAIN-SUFFIX,fubo.tv
+ - DOMAIN-SUFFIX,fubotv.com
+ - DOMAIN-SUFFIX,starplus.com
+ - DOMAIN-SUFFIX,starott.com
+ - DOMAIN-SUFFIX,star.api.edge.bamgrid.com
+ - DOMAIN-SUFFIX,star.connections.edge.bamgrid.com
+ - DOMAIN-SUFFIX,star.content.edge.bamgrid.com
+ - DOMAIN-SUFFIX,star.playback.edge.bamgrid.com
