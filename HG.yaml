@@ -1,0 +1,457 @@
+port: 7890
+socks-port: 7891
+allow-lan: true
+mode: Rule
+log-level: info
+external-controller: 127.0.0.1:9090
+proxies:
+  - {name: star zway8, server: gigs.075661.xyz, port: 24856, type: trojan, password: jXZ6SXkfSU, sni: gigs.075661.xyz, skip-cert-verify: true, udp: true}
+  - {name: 深圳, server: sz.choi33.top, port: 24865, type: ssr, cipher: rc4-md5, password: !<str> 637050, protocol: auth_aes128_md5, obfs: plain, protocolparam: "", obfsparam: "", udp: true}
+  - {name: 深圳備用, server: sz.choi33.top, port: 24862, type: ss, cipher: rc4-md5, password: !<str> 637050, udp: true}
+  - {name: 深圳24860, server: sz.choi33.top, port: 24860, type: ssr, cipher: rc4-md5, password: !<str> 637050, protocol: auth_aes128_md5, obfs: plain, protocolparam: "", obfsparam: "", udp: true}
+  - {name: 測試, server: cs1.czf00852.xyz, port: 24865, type: ssr, cipher: rc4-md5, password: !<str> 637050, protocol: auth_aes128_md5, obfs: plain, protocolparam: "", obfsparam: "", udp: true}
+  - {name: 香港備用, server: hk0804.asuscomm.com, port: 24862, type: ss, cipher: rc4-md5, password: !<str> 637050, udp: true}
+  - {name: HKBN2, server: hkbn2.czf00852.xyz, port: 24865, type: ssr, cipher: rc4-md5, password: !<str> 637050, protocol: auth_aes128_md5, obfs: plain, protocolparam: "", obfsparam: "", udp: true}
+  - {name: star-d, server: cc2104arm02.075661.xyz, port: 39961, type: trojan, password: JWXBoRb1aP, sni: cc2104arm02.075661.xyz, skip-cert-verify: true, udp: true}
+proxy-groups:
+  - name: 🚀 中国代理
+    type: select
+    proxies:
+      - 深圳
+      - 深圳備用
+      - 深圳24860
+  - name: 🔯 美国节点
+    type: url-test
+    url: http://www.gstatic.com/generate_204
+    interval: 300
+    tolerance: 50
+    proxies:
+      - star zway8
+      - star-d
+  - name: 🎯 全球直连
+    type: select
+    proxies:
+      - DIRECT
+  - name: 🛑 全球拦截
+    type: select
+    proxies:
+      - REJECT
+      - DIRECT
+  - name: ⛔ 应用拦截
+    type: select
+    proxies:
+      - REJECT
+      - DIRECT
+  - name: 🔯 故障转移
+    type: fallback
+    url: http://www.gstatic.com/generate_204
+    interval: 120
+    proxies:
+      - 深圳
+      - 深圳備用
+      - 深圳24860
+  - name: 🐟 漏网之鱼
+    type: select
+    proxies:
+      - 🚀 中国代理
+      - 🎯 全球直连
+      - 🔯 美国节点
+
+rule-providers:
+# 直连和广告拦截
+  Special:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/dler-io/Rules/main/Clash/Provider/Special.yaml
+    path: ./Rules/Special.yaml
+    interval: 86400
+  Reject:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/dler-io/Rules/main/Clash/Provider/Reject.yaml
+    path: ./Rules/Reject.yaml
+    interval: 86400
+# 美国媒体
+  us:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/czf00852/852/main/us?token=GHSAT0AAAAAABY44G3MJAVUX6HGR4XZSG6CYZHB6BA
+    path: ./Rules/Media/us.yaml
+    interval: 86400
+# 国内媒体分组
+  Bilibili:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/dler-io/Rules/main/Clash/Provider/Media/Bilibili.yaml
+    path: ./Rules/Media/Bilibili.yaml
+    interval: 86400
+  IQ:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/dler-io/Rules/main/Clash/Provider/Media/IQ.yaml
+    path: ./Rules/Media/IQI.yaml
+    interval: 86400
+  IQIYI:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/dler-io/Rules/main/Clash/Provider/Media/IQIYI.yaml
+    path: ./Rules/Media/IQYI.yaml
+    interval: 86400
+  Letv:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/dler-io/Rules/main/Clash/Provider/Media/Letv.yaml
+    path: ./Rules/Media/Letv.yaml
+    interval: 86400
+  Netease Music:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/dler-io/Rules/main/Clash/Provider/Media/Netease%20Music.yaml
+    path: ./Rules/Media/Netease_Music.yaml
+    interval: 86400
+  Tencent Video:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/dler-io/Rules/main/Clash/Provider/Media/Tencent%20Video.yaml
+    path: ./Rules/Media/Tencent_Video.yaml
+    interval: 86400
+  Youku:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/dler-io/Rules/main/Clash/Provider/Media/Youku.yaml
+    path: ./Rules/Media/Youku.yaml
+    interval: 86400
+  WeTV:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/dler-io/Rules/main/Clash/Provider/Media/WeTV.yaml
+    path: ./Rules/Media/WeTV.yaml
+    interval: 86400
+# 国际媒体分组
+  ABC:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/dler-io/Rules/main/Clash/Provider/Media/ABC.yaml
+    path: ./Rules/Media/ABC.yaml
+    interval: 86400
+  Abema TV:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/dler-io/Rules/main/Clash/Provider/Media/Abema%20TV.yaml
+    path: ./Rules/Media/Abema_TV.yaml
+    interval: 86400
+  Amazon:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/dler-io/Rules/main/Clash/Provider/Media/Amazon.yaml
+    path: ./Rules/Media/Amazon.yaml
+    interval: 86400
+  Apple Music:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/dler-io/Rules/main/Clash/Provider/Media/Apple%20Music.yaml
+    path: ./Rules/Media/Apple_Music.yaml
+    interval: 86400
+  Apple News:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/dler-io/Rules/main/Clash/Provider/Media/Apple%20News.yaml
+    path: ./Rules/Media/Apple_News.yaml
+    interval: 86400
+  Apple TV:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/dler-io/Rules/main/Clash/Provider/Media/Apple%20TV.yaml
+    path: ./Rules/Media/Apple_TV.yaml
+    interval: 86400
+  Bahamut:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/dler-io/Rules/main/Clash/Provider/Media/Bahamut.yaml
+    path: ./Rules/Media/Bahamut.yaml
+    interval: 86400
+  BBC iPlayer:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/dler-io/Rules/main/Clash/Provider/Media/BBC%20iPlayer.yaml
+    path: ./Rules/Media/BBC_iPlayer.yaml
+    interval: 86400
+  DAZN:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/dler-io/Rules/main/Clash/Provider/Media/DAZN.yaml
+    path: ./Rules/Media/DAZN.yaml
+    interval: 86400
+  Discovery Plus:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/dler-io/Rules/main/Clash/Provider/Media/Discovery%20Plus.yaml
+    path: ./Rules/Media/Discovery_Plus.yaml
+    interval: 86400
+  Disney Plus:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/dler-io/Rules/main/Clash/Provider/Media/Disney%20Plus.yaml
+    path: ./Rules/Media/Disney_Plus.yaml
+    interval: 86400
+  encoreTVB:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/dler-io/Rules/main/Clash/Provider/Media/encoreTVB.yaml
+    path: ./Rules/Media/encoreTVB.yaml
+    interval: 86400
+  F1 TV:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/dler-io/Rules/main/Clash/Provider/Media/F1%20TV.yaml
+    path: ./Rules/Media/F1_TV.yaml
+    interval: 86400
+  Fox Now:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/dler-io/Rules/main/Clash/Provider/Media/Fox%20Now.yaml
+    path: ./Rules/Media/Fox_Now.yaml
+    interval: 86400
+  Fox+:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/dler-io/Rules/main/Clash/Provider/Media/Fox%2B.yaml
+    path: ./Rules/Media/Fox+.yaml
+    interval: 86400
+  HBO Go:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/dler-io/Rules/main/Clash/Provider/Media/HBO%20Go.yaml
+    path: ./Rules/Media/HBO_Go.yaml
+    interval: 86400
+  HBO Max:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/dler-io/Rules/main/Clash/Provider/Media/HBO%20Max.yaml
+    path: ./Rules/Media/HBO_Max.yaml
+    interval: 86400
+  Hulu Japan:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/dler-io/Rules/main/Clash/Provider/Media/Hulu%20Japan.yaml
+    path: ./Rules/Media/Hulu_Japan.yaml
+    interval: 86400
+  Hulu:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/dler-io/Rules/main/Clash/Provider/Media/Hulu.yaml
+    path: ./Rules/Media/Hulu.yaml
+    interval: 86400
+  Japonx:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/dler-io/Rules/main/Clash/Provider/Media/Japonx.yaml
+    path: ./Rules/Media/Japonx.yaml
+    interval: 86400
+  JOOX:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/dler-io/Rules/main/Clash/Provider/Media/JOOX.yaml
+    path: ./Rules/Media/JOOX.yaml
+    interval: 86400
+  KKBOX:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/dler-io/Rules/main/Clash/Provider/Media/KKBOX.yaml
+    path: ./Rules/Media/KKBOX.yaml
+    interval: 86400
+  KKTV:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/dler-io/Rules/main/Clash/Provider/Media/KKTV.yaml
+    path: ./Rules/Media/KKTV.yaml
+    interval: 86400
+  Line TV:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/dler-io/Rules/main/Clash/Provider/Media/Line%20TV.yaml
+    path: ./Rules/Media/Line_TV.yaml
+    interval: 86400
+  myTV SUPER:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/dler-io/Rules/main/Clash/Provider/Media/myTV%20SUPER.yaml
+    path: ./Rules/Media/myTV_SUPER.yaml
+    interval: 86400
+  Netflix:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/dler-io/Rules/main/Clash/Provider/Media/Netflix.yaml
+    path: ./Rules/Media/Netflix.yaml
+    interval: 86400
+  Pandora:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/dler-io/Rules/main/Clash/Provider/Media/Pandora.yaml
+    path: ./Rules/Media/Pandora.yaml
+    interval: 86400
+  PBS:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/dler-io/Rules/main/Clash/Provider/Media/PBS.yaml
+    path: ./Rules/Media/PBS.yaml
+    interval: 86400
+  Pornhub:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/dler-io/Rules/main/Clash/Provider/Media/Pornhub.yaml
+    path: ./Rules/Media/Pornhub.yaml
+    interval: 86400
+  Soundcloud:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/dler-io/Rules/main/Clash/Provider/Media/Soundcloud.yaml
+    path: ./Rules/Media/Soundcloud.yaml
+    interval: 86400
+  Spotify:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/dler-io/Rules/main/Clash/Provider/Media/Spotify.yaml
+    path: ./Rules/Media/Spotify.yaml
+    interval: 86400
+  ViuTV:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/dler-io/Rules/main/Clash/Provider/Media/ViuTV.yaml
+    path: ./Rules/Media/ViuTV.yaml
+    interval: 86400
+  YouTube:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/dler-io/Rules/main/Clash/Provider/Media/YouTube.yaml
+    path: ./Rules/Media/YouTube.yaml
+    interval: 86400
+  YouTube Music:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/dler-io/Rules/main/Clash/Provider/Media/YouTube%20Music.yaml
+    path: ./Rules/Media/YouTube_Music.yaml
+    interval: 86400
+# 苹果服务规则列表
+  Apple:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/dler-io/Rules/main/Clash/Provider/Apple.yaml
+    path: ./Rules/Apple.yaml
+    interval: 86400
+# 电报、Steam、微软及 Steam / PayPal 可选规则列表
+  Telegram:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/dler-io/Rules/main/Clash/Provider/Telegram.yaml
+    path: ./Rules/Telegram.yaml
+    interval: 86400
+  Microsoft:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/dler-io/Rules/main/Clash/Provider/Microsoft.yaml
+    path: ./Rules/Microsoft.yaml
+    interval: 86400
+  Steam:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/dler-io/Rules/main/Clash/Provider/Steam.yaml
+    path: ./Rules/Steam.yaml
+    interval: 86400
+  PayPal:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/dler-io/Rules/main/Clash/Provider/PayPal.yaml
+    path: ./Rules/PayPal.yaml
+    interval: 86400
+# 必须规则列表
+  Speedtest:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/dler-io/Rules/main/Clash/Provider/Speedtest.yaml
+    path: ./Rules/Speedtest.yaml
+    interval: 86400
+  Proxy:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/dler-io/Rules/main/Clash/Provider/Proxy.yaml
+    path: ./Rules/Proxy.yaml
+    interval: 86400
+  Domestic:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/dler-io/Rules/main/Clash/Provider/Domestic.yaml
+    path: ./Rules/Domestic.yaml
+    interval: 86400
+  LAN:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/dler-io/Rules/main/Clash/Provider/LAN.yaml
+    path: ./Rules/LAN.yaml
+    interval: 86400
+
+rules:
+  # 直连和广告拦截
+  - RULE-SET,Special,🎯 全球直连
+  - RULE-SET,Reject,⛔ 应用拦截
+  # 国内媒体分组
+  - RULE-SET,Bilibili,🚀 中国代理
+  - RULE-SET,IQ,🚀 中国代理
+  - RULE-SET,IQIYI,🚀 中国代理
+  - RULE-SET,Letv,🚀 中国代理
+  - RULE-SET,Netease Music,🚀 中国代理
+  - RULE-SET,Tencent Video,🚀 中国代理
+  - RULE-SET,Youku,🚀 中国代理
+  - RULE-SET,WeTV,🚀 中国代理
+  # 国际媒体分组
+  - RULE-SET,us,🔯 美国节点
+  - RULE-SET,Netflix,🎯 全球直连
+  - RULE-SET,Disney Plus,🎯 全球直连
+  - RULE-SET,Spotify,🎯 全球直连
+  - RULE-SET,YouTube,🎯 全球直连
+  - RULE-SET,YouTube Music,🎯 全球直连
+  - RULE-SET,ABC,🎯 全球直连
+  - RULE-SET,Abema TV,🎯 全球直连
+  - RULE-SET,Amazon,🎯 全球直连
+  - RULE-SET,Apple News,🎯 全球直连
+  - RULE-SET,Apple TV,🎯 全球直连
+  - RULE-SET,Bahamut,🎯 全球直连
+  - RULE-SET,BBC iPlayer,🎯 全球直连
+  - RULE-SET,DAZN,🎯 全球直连
+  - RULE-SET,Discovery Plus,🎯 全球直连
+  - RULE-SET,encoreTVB,🎯 全球直连
+  - RULE-SET,F1 TV,🎯 全球直连
+  - RULE-SET,Fox Now,🎯 全球直连
+  - RULE-SET,Fox+,🎯 全球直连
+  - RULE-SET,HBO Go,🎯 全球直连
+  - RULE-SET,HBO Max,🎯 全球直连
+  - RULE-SET,Hulu Japan,🎯 全球直连
+  - RULE-SET,Hulu,🎯 全球直连
+  - RULE-SET,Japonx,🎯 全球直连
+  - RULE-SET,JOOX,🎯 全球直连
+  - RULE-SET,KKBOX,🎯 全球直连
+  - RULE-SET,KKTV,🎯 全球直连
+  - RULE-SET,Line TV,🎯 全球直连
+  - RULE-SET,myTV SUPER,🎯 全球直连
+  - RULE-SET,Pandora,🎯 全球直连
+  - RULE-SET,PBS,🎯 全球直连
+  - RULE-SET,Pornhub,🎯 全球直连
+  - RULE-SET,Soundcloud,🎯 全球直连
+  - RULE-SET,ViuTV,🎯 全球直连
+  # 苹果服务
+  - RULE-SET,Apple,🎯 全球直连
+  # 电报、微软、贝宝及 Steam 可选规则，如需为某个规则列表单独设置策略，请直接修改策略名称与上方策略组名称保持一致
+  - RULE-SET,Microsoft,🎯 全球直连
+  - RULE-SET,Telegram,🎯 全球直连
+  - RULE-SET,PayPal,🎯 全球直连
+  - RULE-SET,Steam,🎯 全球直连
+
+  # 必须规则
+  - RULE-SET,Speedtest,🎯 全球直连
+  - RULE-SET,Proxy,🎯 全球直连
+  - RULE-SET,Domestic,🚀 中国代理
+  - RULE-SET,LAN,🎯 全球直连
+
+  # 最终规则
+  - GEOIP,CN,🚀 中国代理
+  - MATCH,🐟 漏网之鱼
