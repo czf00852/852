@@ -4,30 +4,30 @@ payload:
 #DOMAIN-KEYWORD,adservice
   
 # > PeacockTV
-DOMAIN,video-ads-module.ad-tech.nbcuni.com
+  - DOMAIN,video-ads-module.ad-tech.nbcuni.com
 
 # > Tencent
-DOMAIN-KEYWORD,adstats
-DOMAIN,adstats.tencentmusic.com
+  - DOMAIN-KEYWORD,adstats
+  - DOMAIN,adstats.tencentmusic.com
   
 # > TVer
-DOMAIN,fod-cm-ad-v.webcdn.stream.ne.jp
+  - DOMAIN,fod-cm-ad-v.webcdn.stream.ne.jp
 
 # > Viu
-DOMAIN-SUFFIX,adcolony.com
-DOMAIN,r2---sn-j5o76n7e.gvt1.com
+  - DOMAIN-SUFFIX,adcolony.com
+  - DOMAIN,r2---sn-j5o76n7e.gvt1.com
 
 # > iQIYI 
 # 视频暂停广告
-DOMAIN-SUFFIX,cupid.iqiyi.com
+  - DOMAIN-SUFFIX,cupid.iqiyi.com
   
 # > Youku 视频暂停广告
-DOMAIN,iyes.youku.com
+  - DOMAIN,iyes.youku.com
 
 #Reject
-DOMAIN-SUFFIX,guizumeimei.com
-DOMAIN-SUFFIX,swzw.la
-DOMAIN-SUFFIX,shuquta.com
-DOMAIN-SUFFIX,qbxsb.com
-DOMAIN-SUFFIX,ydianwang.com
-DOMAIN-SUFFIX,shenshuxs.la
+  - DOMAIN-SUFFIX,guizumeimei.com
+  - DOMAIN-SUFFIX,swzw.la
+  - DOMAIN-SUFFIX,shuquta.com
+  - DOMAIN-SUFFIX,qbxsb.com
+  - DOMAIN-SUFFIX,ydianwang.com
+  - DOMAIN-SUFFIX,shenshuxs.la
