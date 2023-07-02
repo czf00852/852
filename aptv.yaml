@@ -1,4 +1,3 @@
 # NAME: aptvapp.com
 payload:
   - DOMAIN-SUFFIX,aptvapp.com
-  - USER-AGENT,AptvPlayer*,DIRECT
