@@ -1,0 +1,9 @@
+# NAME: NowTV
+payload:
+  - DOMAIN-SUFFIX,now.com
+  - DOMAIN-SUFFIX,nowtv.now.com
+  - DOMAIN-SUFFIX,nowplayer.now.com
+
+# NAME: efootball
+  - DOMAIN-SUFFIX,cs.konami.net
+  - DOMAIN-SUFFIX,googleusercontent.com
