@@ -8,7 +8,7 @@ payload:
   - DOMAIN-SUFFIX,cs.konami.net
   - DOMAIN-SUFFIX,googleusercontent.com
 
-  # NAME: hkjc
+# NAME: hkjc
   - DOMAIN-SUFFIX,hkjc.com
   - DOMAIN-SUFFIX,cld.hkjc.com
 # - DOMAIN-KEYWORD,hkjc
