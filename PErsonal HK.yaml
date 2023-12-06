@@ -7,3 +7,7 @@ payload:
 # NAME: efootball
   - DOMAIN-SUFFIX,cs.konami.net
   - DOMAIN-SUFFIX,googleusercontent.com
+
+  # NAME: hkjc
+  - DOMAIN-SUFFIX,hkjc.com
+  - DOMAIN-SUFFIX,cld.hkjc.com
