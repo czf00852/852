@@ -11,4 +11,4 @@ payload:
   # NAME: hkjc
   - DOMAIN-SUFFIX,hkjc.com
   - DOMAIN-SUFFIX,cld.hkjc.com
-  - DOMAIN-KEYWORD,hkjc
+  #- DOMAIN-KEYWORD,hkjc
