@@ -4,7 +4,7 @@ payload:
   - DOMAIN-SUFFIX,misakaf.org
   - DOMAIN-KEYWORD,embyvip
 
-
+# NAME: 國內直连
   - DOMAIN-SUFFIX,cn
   - DOMAIN-SUFFIX,ms
   - DOMAIN-KEYWORD,.tmall.com
