@@ -1,6 +1,8 @@
-# NAME: embyvip.com
+# NAME: embyvip
 payload:
   - DOMAIN-SUFFIX,cfprefer3.xyz
   - DOMAIN-SUFFIX,misakaf.org
   - DOMAIN-KEYWORD,embyvip
+
+# NAME: todesm
   - DOMAIN-SUFFIX,todesk.com
