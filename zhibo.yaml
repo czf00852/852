@@ -1,0 +1,4 @@
+# NAME: zhibo
+payload:
+  - IP-CIDR,168.138.191.116/32
+  - DOMAIN-SUFFIX,168.138.191.116
