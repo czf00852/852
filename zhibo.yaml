@@ -1,5 +1,4 @@
 # NAME: zhibo
 payload:
-  - SRC-IP-CIDR,168.138.191.116/24
-  - IP-CIDR,168.138.191.116/32,no-resolve
+  - DST-IP-CIDR,168.138.191.116/32
   #- DST-PORT,10010
