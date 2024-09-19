@@ -1,4 +1,3 @@
 # NAME: zhibo
 payload:
-  - DST-IP-CIDR,168.138.191.116/32
-  #- DST-PORT,10010
+  - DST-PORT,10010
