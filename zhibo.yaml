@@ -1,3 +1,6 @@
 # NAME: zhibo
 payload:
   - IP-CIDR,168.138.191.116/32,no-resolve
+
+# NAME: emby server
+  - DOMAIN-SUFFIX,mobaiemby.site
