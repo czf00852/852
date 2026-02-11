@@ -3,5 +3,5 @@ payload:
   - IP-CIDR,193.108.118.153/32,no-resolve
 
 # NAME: emby server
-  - DOMAIN-SUFFIX,mobaiemby.site
+  - DOMAIN-SUFFIX,cn2gias.uk
   - DOMAIN-SUFFIX,levilde.bond
