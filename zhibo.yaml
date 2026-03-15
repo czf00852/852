@@ -5,3 +5,4 @@ payload:
 # NAME: emby server
   - DOMAIN-SUFFIX,cn2gias.uk
   - DOMAIN-SUFFIX,levilde.bond
+  - DOMAIN-SUFFIX,mobaiemby.site
