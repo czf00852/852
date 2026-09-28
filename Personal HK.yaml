@@ -11,3 +11,5 @@ payload:
 # NAME: discuss
   - DOMAIN-SUFFIX,discuss.com.hk
 # - DOMAIN-KEYWORD,
+
+  - DOMAIN-SUFFIX,asuscomm.com,DIRECT
